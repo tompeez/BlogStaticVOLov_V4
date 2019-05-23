@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.64.93" id="MultiLanguageLookupPageDef"
+                Package="de.hahn.blog.accessresourcesfrompath.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LookupMultiLanguageView1" RangeSize="25" DataControl="BSVOLOVAppModuleDataControl" id="LookupMultiLanguageView1Iterator"
+              ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <list IterBinding="LookupMultiLanguageView1Iterator" StaticList="false" Uses="LOV_GenderId" id="GenderId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="LookupMultiLanguageView1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LookupMultiLanguageView1Iterator" StaticList="false" Uses="LOV_PositionId" id="PositionId" DTSupportsMRU="false"/>
+    <list IterBinding="LookupMultiLanguageView1Iterator" StaticList="false" Uses="LOV_TitelId" id="TitelId" DTSupportsMRU="false"/>
+    <list IterBinding="LookupMultiLanguageView1Iterator" StaticList="false" Uses="LOV_WeekdayId" id="WeekdayId" DTSupportsMRU="false"/>
+    <action IterBinding="LookupMultiLanguageView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="LookupMultiLanguageView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="LookupMultiLanguageView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="LookupMultiLanguageView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="BSVOLOVAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="BSVOLOVAppModuleDataControl"/>
+    <action IterBinding="LookupMultiLanguageView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

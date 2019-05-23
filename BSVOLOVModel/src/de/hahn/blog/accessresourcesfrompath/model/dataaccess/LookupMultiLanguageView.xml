@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LookupMultiLanguageView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="Lookuptest.GENDER_ID, 
+       Lookuptest.ID, 
+       Lookuptest.POSITION_ID, 
+       Lookuptest.TITEL_ID, 
+       Lookuptest.WEEKDAY_ID"
+  FromList="LOOKUPTEST Lookuptest"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="25"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="de.hahn.blog.accessresourcesfrompath.model.dataaccess.LookupMultiLanguageView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="WeedayMultiLanguageLOV"
+    ViewObjectName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView">
+    <ViewCriteriaUsage
+      Name="TypeLookupByLanguageViewCriteria"
+      FullName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView.TypeLookupByLanguageViewCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bindLanguage">
+        <TransientExpression><![CDATA[oracle.adf.share.logging.ADFLogger LOGGER = oracle.adf.share.logging.ADFLogger.createADFLogger(source.getClass());  loc = adf.context.locale;  if (loc == null) {   LOGGER.info("Language not set -> en");   return 'en'; } else {   lang = loc.language;   String shortLang = lang.substring(0,2);   if (!"#de#it#fr#en#".contains(shortLang)) {     LOGGER.info("Language not recognized -> en");     shortLang="en";   } else {     LOGGER.info("Language set to -> "+lang.substring(0,2));     shortLang = lang.substring(0,2);   }  }]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="bindType">
+        <TransientExpression><![CDATA['WEEKDAY']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="TitleMultiLanguageLOV"
+    ViewObjectName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView">
+    <ViewCriteriaUsage
+      Name="TypeLookupByLanguageViewCriteria"
+      FullName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView.TypeLookupByLanguageViewCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bindLanguage">
+        <TransientExpression><![CDATA[oracle.adf.share.logging.ADFLogger LOGGER = oracle.adf.share.logging.ADFLogger.createADFLogger(source.getClass());  loc = adf.context.locale;  if (loc == null) {   LOGGER.info("Language not set -> en");   return 'en'; } else {   lang = loc.language;   String shortLang = lang.substring(0,2);   if (!"#de#it#fr#en#".contains(shortLang)) {     LOGGER.info("Language not recognized -> en");     shortLang="en";   } else {     LOGGER.info("Language set to -> "+lang.substring(0,2));     shortLang = lang.substring(0,2);   }  }]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="bindType">
+        <TransientExpression><![CDATA['TITLE']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="PositionMultiLanguageLOV"
+    ViewObjectName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView">
+    <ViewCriteriaUsage
+      Name="TypeLookupByLanguageViewCriteria"
+      FullName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView.TypeLookupByLanguageViewCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bindLanguage">
+        <TransientExpression><![CDATA[oracle.adf.share.logging.ADFLogger LOGGER = oracle.adf.share.logging.ADFLogger.createADFLogger(source.getClass());  loc = adf.context.locale;  if (loc == null) {   LOGGER.info("Language not set -> en");   return 'en'; } else {   lang = loc.language;   String shortLang = lang.substring(0,2);   if (!"#de#it#fr#en#".contains(shortLang)) {     LOGGER.info("Language not recognized -> en");     shortLang="en";   } else {     LOGGER.info("Language set to -> "+lang.substring(0,2));     shortLang = lang.substring(0,2);   }  }]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="bindType">
+        <TransientExpression><![CDATA['POSITION']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="GenderMultilanguageLOV"
+    ViewObjectName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView">
+    <ViewCriteriaUsage
+      Name="TypeLookupByLanguageViewCriteria"
+      FullName="de.hahn.blog.accessresourcesfrompath.model.dataaccess.GenerallookupView.TypeLookupByLanguageViewCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bindLanguage">
+        <TransientExpression><![CDATA[oracle.adf.share.logging.ADFLogger LOGGER = oracle.adf.share.logging.ADFLogger.createADFLogger(source.getClass());  loc = adf.context.locale;  if (loc == null) {   LOGGER.info("Language not set -> en");   return 'en'; } else {   lang = loc.language;   String shortLang = lang.substring(0,2);   if (!"#de#it#fr#en#".contains(shortLang)) {     LOGGER.info("Language not recognized -> en");     shortLang="en";   } else {     LOGGER.info("Language set to -> "+lang.substring(0,2));     shortLang = lang.substring(0,2);   }  }]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="bindType">
+        <TransientExpression><![CDATA['GENDER']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_WeekdayId"
+    ListVOName="WeedayMultiLanguageLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WeekdayId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Groupid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Data"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TitelId"
+    ListVOName="TitleMultiLanguageLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TitelId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Groupid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Data"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PositionId"
+    ListVOName="PositionMultiLanguageLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PositionId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Groupid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Data"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_GenderId"
+    ListVOName="GenderMultilanguageLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GenderId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Groupid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Data"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Lookuptest"
+    Entity="de.hahn.blog.accessresourcesfrompath.model.businessobjectes.Lookuptest"/>
+  <ViewAttribute
+    Name="GenderId"
+    LOVName="LOV_GenderId"
+    PrecisionRule="true"
+    EntityAttrName="GenderId"
+    EntityUsage="Lookuptest"
+    AliasName="GENDER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Lookuptest"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="PositionId"
+    LOVName="LOV_PositionId"
+    PrecisionRule="true"
+    EntityAttrName="PositionId"
+    EntityUsage="Lookuptest"
+    AliasName="POSITION_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TitelId"
+    LOVName="LOV_TitelId"
+    PrecisionRule="true"
+    EntityAttrName="TitelId"
+    EntityUsage="Lookuptest"
+    AliasName="TITEL_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WeekdayId"
+    LOVName="LOV_WeekdayId"
+    PrecisionRule="true"
+    EntityAttrName="WeekdayId"
+    EntityUsage="Lookuptest"
+    AliasName="WEEKDAY_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="de.hahn.blog.accessresourcesfrompath.model.BSVOLOVModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

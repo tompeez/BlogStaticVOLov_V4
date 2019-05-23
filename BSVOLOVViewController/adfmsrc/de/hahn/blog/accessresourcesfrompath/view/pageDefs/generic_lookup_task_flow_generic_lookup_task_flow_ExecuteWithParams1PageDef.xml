@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.64.93"
+                id="generic_lookup_task_flow_generic_lookup_task_flow_ExecuteWithParams1PageDef" Package="de.hahn.blog.accessresourcesfrompath.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="Generallookup" RangeSize="25" DataControl="BSVOLOVAppModuleDataControl" id="GenerallookupIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GenerallookupIterator" id="ExecuteWithParams" RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="bindType" NDValue="#{pageFlowScope.selectedType}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

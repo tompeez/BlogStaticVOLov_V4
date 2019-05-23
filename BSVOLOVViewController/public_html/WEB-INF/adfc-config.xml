@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="BSVOLOV">
+    <page>/BSVOLOV.jspx</page>
+  </view>
+  <view id="LooupTest">
+    <page>/LooupTest.jspx</page>
+  </view>
+  <view id="GenericLookup">
+    <page>/GenericLookup.jspx</page>
+  </view>
+  <view id="LookupInitPosition">
+    <page>/LookupInitPosition.jspx</page>
+  </view>
+  <view id="MultiLanguageLookup">
+    <page>/MultiLanguageLookup.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id id="__2">GenericLookup</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome id="__5">goInitPosition</from-outcome>
+      <to-activity-id id="__3">LookupInitPosition</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__6">
+    <from-activity-id id="__7">LookupInitPosition</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome id="__10">back</from-outcome>
+      <to-activity-id id="__8">GenericLookup</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__11">
+    <from-activity-id id="__12">LooupTest</from-activity-id>
+    <control-flow-case id="__13">
+      <from-outcome id="__15">goMultilanguage</from-outcome>
+      <to-activity-id id="__14">MultiLanguageLookup</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id id="__17">MultiLanguageLookup</from-activity-id>
+    <control-flow-case id="__19">
+      <from-outcome id="__20">goAllLanguage</from-outcome>
+      <to-activity-id id="__18">LooupTest</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+</adfc-config>

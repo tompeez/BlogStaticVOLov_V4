@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl1" inlineStyle="padding:5.0px;">
+        <af:selectOneChoice value="#{bindings.lookupId1.inputValue}" label="#{bindings.Id.label}" required="#{bindings.Id.hints.mandatory}"
+                            shortDesc="#{bindings.Id.hints.tooltip}" id="soc1">
+          <f:selectItems value="#{bindings.Id.items}" id="si1"/>
+        </af:selectOneChoice>
+        <af:inputText label="Select New Type" id="it1" value="#{bindings.typeSelectLookup1.inputValue}"/>
+        <af:commandButton text="Refresh" id="cb1"
+                           action="setNewType">
+          <af:setPropertyListener from="#{bindings.typeSelectLookup1.inputValue}" to="#{pageFlowScope.selectedType}" type="action"/>
+        </af:commandButton>
+      </af:panelGroupLayout>
+      <!-- id="af_one_column_stretched"   -->
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

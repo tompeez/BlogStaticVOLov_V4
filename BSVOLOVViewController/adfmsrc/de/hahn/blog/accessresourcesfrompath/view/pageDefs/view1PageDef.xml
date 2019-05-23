@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.64.93" id="view1PageDef"
+                Package="de.hahn.blog.accessresourcesfrompath.view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="Generallookup" RangeSize="-1" DataControl="BSVOLOVAppModuleDataControl" id="GenerallookupIterator" Refresh="never"/>
+    <variableIterator id="variables">
+      <variable Name="typeSelectLookup" Type="java.lang.String"/>
+      <variable Name="lookupId" Type="java.lang.Integer"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="variables" id="typeSelectLookup1">
+      <AttrNames>
+        <Item Value="typeSelectLookup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="lookupId1">
+      <AttrNames>
+        <Item Value="lookupId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="Id" DTSupportsMRU="true" StaticList="false" ListIter="GenerallookupIterator">
+      <AttrNames>
+        <Item Value="lookupId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Data"/>
+      </ListDisplayAttrNames>
+    </list>
+  </bindings>
+</pageDefinition>

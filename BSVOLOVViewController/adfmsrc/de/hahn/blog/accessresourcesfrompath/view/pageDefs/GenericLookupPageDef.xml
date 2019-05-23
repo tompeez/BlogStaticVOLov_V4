@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.64.93" id="GenericLookupPageDef"
+                Package="de.hahn.blog.accessresourcesfrompath.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="typeSelector" Type="java.lang.String"/>
+      <variable Name="lookupId" Type="oracle.domain.Number"/>
+      <variableUsage DataControl="BSVOLOVAppModuleDataControl" Binds="Generallookup.variablesMap.bindType" Name="ExecuteWithParams_bindType"
+                     IsQueriable="false"/>
+    </variableIterator>
+    <taskFlow id="genericlookuptaskflow1" taskFlowId="/WEB-INF/generic-lookup-task-flow.xml#generic-lookup-task-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="inputParameter1" value="#{bindings.typeSelector1.inputValue eq null ? 'x' : bindings.typeSelector1.inputValue}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="variables" id="typeSelector1">
+      <AttrNames>
+        <Item Value="typeSelector"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
